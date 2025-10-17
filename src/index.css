@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-neutral-charcoal;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-white to-primary-red bg-clip-text text-transparent;
+  }
+
+  .glow-red {
+    text-shadow: 0 0 20px rgba(220, 0, 0, 0.6);
+  }
+
+  .border-glow {
+    box-shadow: 0 0 20px rgba(220, 0, 0, 0.5);
+  }
+
+  .glass-red {
+    background: rgba(220, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
