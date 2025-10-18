@@ -127,7 +127,7 @@ export default function Navbar() {
               transition={{ duration: 4, repeat: Infinity }}
             >
               <img 
-                src="/assets/logo-2.png" 
+                src="/logo-2.png" 
                 alt="Tabouni Steak House Logo" 
                 className="w-16 h-16 object-contain"
               />

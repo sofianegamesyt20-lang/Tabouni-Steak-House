@@ -76,11 +76,11 @@ export default function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
         style={{
-          backgroundImage: `url('/assets/Steak-bg-img.jpg')`,
+          backgroundImage: `url('https://images.pexels.com/photos/1251198/pexels-photo-1251198.jpeg?auto=compress&cs=tinysrgb&w=1920')`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-neutral-black/90 via-neutral-black/80 to-neutral-black/90"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-red/5 via-transparent to-primary-red/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-neutral-black/80 via-neutral-black/60 to-neutral-black/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-red/10 via-transparent to-primary-red/10"></div>
       </div>
 
       {/* Floating particles */}
@@ -120,7 +120,7 @@ export default function Hero() {
           transition={{ duration: 4, repeat: Infinity }}
         >
           <img 
-            src="/assets/logo-2.png" 
+            src="/logo-2.png" 
             alt="Tabouni Steak House Logo" 
             className="w-32 h-32 object-contain mx-auto animate-pulse" 
           />

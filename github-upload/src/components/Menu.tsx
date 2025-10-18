@@ -293,7 +293,7 @@ export default function Menu() {
               )}
               <span className="relative z-10 flex items-center gap-2">
                 {category.icon === 'logo' ? (
-                  <img src="/assets/logo-2.png" alt="Logo" className="w-5 h-5 object-contain" />
+                  <img src="/logo-2.png" alt="Logo" className="w-5 h-5 object-contain" />
                 ) : (
                   <category.icon className="w-5 h-5" />
                 )}
@@ -337,7 +337,7 @@ export default function Menu() {
                     transition={{ delay: 0.5 + index * 0.1 }}
                   >
                     <img 
-                      src="/assets/logo-2.png" 
+                      src="/logo-2.png" 
                       alt="Featured" 
                       className="w-4 h-4 object-contain" 
                     />
