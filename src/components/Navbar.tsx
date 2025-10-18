@@ -115,10 +115,10 @@ export default function Navbar() {
         initial="hidden"
         animate="visible"
       >
-        <div className="container mx-auto px-4 flex items-center justify-between">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
           <motion.div 
-            className="flex items-center gap-3"
+            className="flex items-center gap-2 sm:gap-3"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
@@ -129,16 +129,16 @@ export default function Navbar() {
               <img 
                 src="/assets/logo-2.png" 
                 alt="Tabouni Steak House Logo" 
-                className="w-16 h-16 object-contain"
+                className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
               />
             </motion.div>
             <div className="flex flex-col">
-              <span className={`text-2xl font-bold font-serif transition-colors duration-300 ${
+              <span className={`text-lg sm:text-xl md:text-2xl font-bold font-serif transition-colors duration-300 ${
                 isScrolled ? 'text-primary-red' : 'text-white'
               }`}>
                 TABOUNI
               </span>
-              <span className={`text-base font-bold font-serif transition-colors duration-300 ${
+              <span className={`text-xs sm:text-sm md:text-base font-bold font-serif transition-colors duration-300 ${
                 isScrolled ? 'text-primary-red' : 'text-white'
               }`}>
                 STEAK HOUSE
@@ -147,12 +147,35 @@ export default function Navbar() {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link, index) => (
               <motion.a
                 key={link.name}
                 href={link.href}
-                className={`font-medium transition-all duration-300 relative group ${
+                className={`font-medium transition-all duration-300 relative group text-sm lg:text-base ${
+                  isScrolled ? 'text-neutral-charcoal' : 'text-white'
+                }`}
+                variants={linkVariants}
+                custom={index}
+                whileHover="hover"
+              >
+                {link.name}
+                <motion.div
+                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-red"
+                  whileHover={{ width: "100%" }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                />
+              </motion.a>
+            ))}
+          </div>
+
+          {/* Tablet Navigation */}
+          <div className="hidden md:flex lg:hidden items-center gap-4">
+            {navLinks.slice(0, 3).map((link, index) => (
+              <motion.a
+                key={link.name}
+                href={link.href}
+                className={`font-medium transition-all duration-300 relative group text-sm ${
                   isScrolled ? 'text-neutral-charcoal' : 'text-white'
                 }`}
                 variants={linkVariants}
@@ -177,10 +200,11 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <motion.button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden transition-colors duration-300 relative ${
+            className={`md:hidden transition-colors duration-300 relative p-2 ${
               isScrolled ? 'text-primary-red' : 'text-white'
             }`}
             whileTap={{ scale: 0.9 }}
+            aria-label="Toggle mobile menu"
           >
             <AnimatePresence mode="wait">
               {isMobileMenuOpen ? (
@@ -219,10 +243,10 @@ export default function Navbar() {
             animate="visible"
             exit="exit"
           >
-            <div className="flex flex-col items-center justify-center h-full gap-8 relative">
+            <div className="flex flex-col items-center justify-center h-full gap-6 sm:gap-8 relative px-4">
               {/* Background pattern */}
               <div className="absolute inset-0 opacity-10">
-                {[...Array(50)].map((_, i) => (
+                {[...Array(30)].map((_, i) => (
                   <motion.div
                     key={i}
                     className="absolute w-1 h-1 bg-white rounded-full"
@@ -249,7 +273,7 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-white text-3xl font-serif hover:text-luxury-gold transition-colors duration-300 relative group"
+                  className="text-white text-2xl sm:text-3xl font-serif hover:text-luxury-gold transition-colors duration-300 relative group text-center"
                   variants={mobileLinkVariants}
                   custom={index}
                   whileHover="hover"

@@ -11,7 +11,7 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    scroll-padding-top: 60px;
   }
 
   body {
@@ -20,6 +20,7 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   /* Performance optimizations */
@@ -34,6 +35,119 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
     font-feature-settings: "kern" 1, "liga" 1, "dlig" 1;
+  }
+
+  /* Responsive utilities */
+  .container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Mobile-first responsive text */
+  .text-responsive-xs {
+    @apply text-xs sm:text-sm;
+  }
+
+  .text-responsive-sm {
+    @apply text-sm sm:text-base;
+  }
+
+  .text-responsive-base {
+    @apply text-base sm:text-lg;
+  }
+
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl;
+  }
+
+  .text-responsive-xl {
+    @apply text-xl sm:text-2xl;
+  }
+
+  .text-responsive-2xl {
+    @apply text-2xl sm:text-3xl md:text-4xl;
+  }
+
+  .text-responsive-3xl {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  .text-responsive-4xl {
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl;
+  }
+
+  /* Responsive spacing */
+  .space-responsive-sm {
+    @apply space-y-4 sm:space-y-6;
+  }
+
+  .space-responsive-md {
+    @apply space-y-6 sm:space-y-8;
+  }
+
+  .space-responsive-lg {
+    @apply space-y-8 sm:space-y-12;
+  }
+
+  /* Responsive padding */
+  .p-responsive-sm {
+    @apply p-4 sm:p-6;
+  }
+
+  .p-responsive-md {
+    @apply p-6 sm:p-8;
+  }
+
+  .p-responsive-lg {
+    @apply p-8 sm:p-12;
+  }
+
+  /* Responsive margins */
+  .m-responsive-sm {
+    @apply m-4 sm:m-6;
+  }
+
+  .m-responsive-md {
+    @apply m-6 sm:m-8;
+  }
+
+  .m-responsive-lg {
+    @apply m-8 sm:m-12;
+  }
+
+  /* Touch-friendly interactions */
+  @media (hover: none) and (pointer: coarse) {
+    .hover\:scale-105:hover {
+      transform: none;
+    }
+    
+    .hover\:scale-110:hover {
+      transform: none;
+    }
+    
+    .group:hover .group-hover\:scale-110 {
+      transform: none;
+    }
+  }
+
+  /* Improved focus states for accessibility */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary-red;
+  }
+
+  /* Reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 
   /* Custom scrollbar */

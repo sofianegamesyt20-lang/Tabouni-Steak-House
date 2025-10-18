@@ -76,11 +76,11 @@ export default function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
         style={{
-          backgroundImage: `url('https://images.pexels.com/photos/1251198/pexels-photo-1251198.jpeg?auto=compress&cs=tinysrgb&w=1920')`,
+          backgroundImage: `url('/assets/Steak-bg-img.jpg')`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-neutral-black/80 via-neutral-black/60 to-neutral-black/80"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-red/10 via-transparent to-primary-red/10"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-neutral-black/90 via-neutral-black/80 to-neutral-black/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-red/5 via-transparent to-primary-red/5"></div>
       </div>
 
       {/* Floating particles */}
@@ -107,32 +107,32 @@ export default function Hero() {
       </div>
 
       <motion.div 
-        className="relative h-full flex flex-col items-center justify-center text-center px-4"
+        className="relative h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         {/* Luxury crown icon */}
         <motion.div 
-          className="mb-6"
+          className="mb-4 sm:mb-6"
           variants={itemVariants}
           animate={{ rotate: [0, 5, -5, 0] }}
           transition={{ duration: 4, repeat: Infinity }}
         >
           <img 
-            src="/logo-2.png" 
+            src="/assets/logo-2.png" 
             alt="Tabouni Steak House Logo" 
-            className="w-32 h-32 object-contain mx-auto animate-pulse" 
+            className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain mx-auto animate-pulse" 
           />
         </motion.div>
 
         {/* Main title with luxury effects */}
         <motion.div 
-          className="mb-8 transform hover:scale-105 transition-transform duration-500"
+          className="mb-6 sm:mb-8 transform hover:scale-105 transition-transform duration-500"
           variants={titleVariants}
         >
           <motion.h1 
-            className="text-6xl md:text-8xl lg:text-9xl font-bold text-luxury-gradient glow-red mb-4 font-serif tracking-wider"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold text-luxury-gradient glow-red mb-3 sm:mb-4 font-serif tracking-wider leading-tight"
             animate={{ 
               textShadow: [
                 "0 0 15px rgba(220, 0, 0, 0.4)",
@@ -147,7 +147,7 @@ export default function Hero() {
           
           {/* Animated divider */}
           <motion.div 
-            className="h-1 w-32 bg-gradient-to-r from-transparent via-primary-red to-transparent mx-auto rounded-full"
+            className="h-0.5 sm:h-1 w-24 sm:w-32 bg-gradient-to-r from-transparent via-primary-red to-transparent mx-auto rounded-full"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
@@ -155,7 +155,7 @@ export default function Hero() {
           
           {/* STEAK HOUSE subtitle */}
           <motion.h2 
-            className="text-xl md:text-2xl lg:text-3xl font-bold font-serif text-luxury-gradient mt-4 mb-2 tracking-wide"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold font-serif text-luxury-gradient mt-3 sm:mt-4 mb-2 tracking-wide"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -174,7 +174,7 @@ export default function Hero() {
 
         {/* Subtitle */}
         <motion.h2 
-          className="text-2xl md:text-4xl lg:text-5xl font-elegant text-white mb-6 tracking-wide leading-relaxed"
+          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-elegant text-white mb-4 sm:mb-6 tracking-wide leading-relaxed px-2"
           variants={itemVariants}
         >
           {t('hero.subtitle')}{' '}
@@ -183,7 +183,7 @@ export default function Hero() {
 
         {/* Description */}
         <motion.p 
-          className="text-neutral-offwhite/90 text-lg md:text-xl lg:text-2xl mb-12 max-w-3xl leading-relaxed font-light"
+          className="text-neutral-offwhite/90 text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-12 max-w-3xl leading-relaxed font-light px-2"
           variants={itemVariants}
         >
           {t('hero.description')}
@@ -191,17 +191,17 @@ export default function Hero() {
 
         {/* Action buttons */}
         <motion.div 
-          className="flex flex-col sm:flex-row gap-6 mb-16"
+          className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-12 sm:mb-16 w-full max-w-2xl"
           variants={itemVariants}
         >
           <motion.button 
-            className="group relative px-10 py-5 luxury-gradient text-white font-semibold rounded-xl overflow-hidden luxury-shadow-red text-lg tracking-wide"
+            className="group relative px-6 sm:px-8 md:px-10 py-4 sm:py-5 luxury-gradient text-white font-semibold rounded-xl overflow-hidden luxury-shadow-red text-base sm:text-lg tracking-wide w-full sm:w-auto"
             variants={buttonVariants}
             whileHover="hover"
             whileTap="tap"
           >
-            <span className="relative z-10 flex items-center gap-2">
-              <Crown className="w-5 h-5" />
+            <span className="relative z-10 flex items-center justify-center gap-2">
+              <Crown className="w-4 h-4 sm:w-5 sm:h-5" />
               {t('hero.book.table')}
             </span>
             <div className="absolute inset-0 bg-primary-dark transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
@@ -209,13 +209,13 @@ export default function Hero() {
           </motion.button>
 
           <motion.button 
-            className="group px-10 py-5 border-2 border-white text-white font-semibold rounded-xl transition-all duration-500 hover:bg-primary-red hover:border-primary-red hover:scale-105 hover:shadow-luxury-red text-lg tracking-wide glass-morphism"
+            className="group px-6 sm:px-8 md:px-10 py-4 sm:py-5 border-2 border-white text-white font-semibold rounded-xl transition-all duration-500 hover:bg-primary-red hover:border-primary-red hover:scale-105 hover:shadow-luxury-red text-base sm:text-lg tracking-wide glass-morphism w-full sm:w-auto"
             variants={buttonVariants}
             whileHover="hover"
             whileTap="tap"
           >
-            <span className="flex items-center gap-2">
-              <Sparkles className="w-5 h-5" />
+            <span className="flex items-center justify-center gap-2">
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
               {t('hero.view.menu')}
             </span>
           </motion.button>
@@ -223,16 +223,16 @@ export default function Hero() {
 
         {/* Scroll indicator */}
         <motion.div 
-          className="absolute bottom-10"
+          className="absolute bottom-6 sm:bottom-10"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
           <motion.div
-            className="flex flex-col items-center gap-2 text-white/70"
+            className="flex flex-col items-center gap-1 sm:gap-2 text-white/70"
             whileHover={{ scale: 1.1 }}
           >
-            <span className="text-sm font-medium tracking-wider">SCROLL</span>
-            <ChevronDown className="w-8 h-8 text-primary-red" />
+            <span className="text-xs sm:text-sm font-medium tracking-wider">SCROLL</span>
+            <ChevronDown className="w-6 h-6 sm:w-8 sm:h-8 text-primary-red" />
           </motion.div>
         </motion.div>
       </motion.div>

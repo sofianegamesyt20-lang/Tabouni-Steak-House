@@ -231,16 +231,16 @@ export default function Menu() {
         ))}
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
           <motion.div variants={itemVariants}>
             <motion.h2 
-              className="text-6xl font-bold text-white mb-6 font-serif"
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 font-serif leading-tight"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -248,13 +248,13 @@ export default function Menu() {
               {t('menu.title')}
             </motion.h2>
             <motion.div 
-              className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-red to-transparent mx-auto mb-8 rounded-full"
+              className="w-24 sm:w-32 h-0.5 sm:h-1 bg-gradient-to-r from-transparent via-primary-red to-transparent mx-auto mb-6 sm:mb-8 rounded-full"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 1, delay: 0.3 }}
             />
             <motion.p 
-              className="text-neutral-offwhite/90 text-xl max-w-3xl mx-auto leading-relaxed font-light"
+              className="text-neutral-offwhite/90 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed font-light px-2"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -266,7 +266,7 @@ export default function Menu() {
 
         {/* Category Filter */}
         <motion.div 
-          className="flex flex-wrap justify-center gap-4 mb-16"
+          className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12 sm:mb-16 px-2"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -275,7 +275,7 @@ export default function Menu() {
             <motion.button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`group relative px-8 py-4 rounded-xl font-medium transition-all duration-500 overflow-hidden ${
+              className={`group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-medium transition-all duration-500 overflow-hidden text-sm sm:text-base ${
                 activeCategory === category.id
                   ? 'text-white'
                   : 'text-neutral-offwhite/70 hover:text-white'
@@ -291,11 +291,11 @@ export default function Menu() {
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                 />
               )}
-              <span className="relative z-10 flex items-center gap-2">
+              <span className="relative z-10 flex items-center gap-1 sm:gap-2">
                 {category.icon === 'logo' ? (
-                  <img src="/assets/logo-2.png" alt="Logo" className="w-5 h-5 object-contain" />
+                  <img src="/assets/logo-2.png" alt="Logo" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
                 ) : (
-                  <category.icon className="w-5 h-5" />
+                  <category.icon className="w-4 h-4 sm:w-5 sm:h-5" />
                 )}
                 {category.name}
               </span>
@@ -305,7 +305,7 @@ export default function Menu() {
 
         {/* Menu Items */}
         <motion.div 
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -313,13 +313,13 @@ export default function Menu() {
           {filteredItems.map((item, index) => (
             <motion.div
               key={item.id}
-              className="group bg-white rounded-2xl overflow-hidden cursor-pointer luxury-shadow hover:shadow-luxury-red transition-all duration-500"
+              className="group bg-white rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer luxury-shadow hover:shadow-luxury-red transition-all duration-500"
               variants={cardVariants}
               custom={index}
               whileHover="hover"
               onClick={() => setSelectedItem(item)}
             >
-              <div className="relative overflow-hidden h-56">
+              <div className="relative overflow-hidden h-48 sm:h-56">
                 <img
                   src={item.image}
                   alt={item.name}
@@ -331,7 +331,7 @@ export default function Menu() {
                 {/* Featured Badge */}
                 {item.featured && (
                   <motion.div 
-                    className="absolute top-4 right-4 bg-luxury-gradient text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2"
+                    className="absolute top-3 sm:top-4 right-3 sm:right-4 bg-luxury-gradient text-white px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-semibold flex items-center gap-1 sm:gap-2"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.5 + index * 0.1 }}
@@ -339,7 +339,7 @@ export default function Menu() {
                     <img 
                       src="/assets/logo-2.png" 
                       alt="Featured" 
-                      className="w-4 h-4 object-contain" 
+                      className="w-3 h-3 sm:w-4 sm:h-4 object-contain" 
                     />
                     Featured
                   </motion.div>
@@ -347,7 +347,7 @@ export default function Menu() {
 
                 {/* Favorite Button */}
                 <motion.button
-                  className="absolute top-4 left-4 p-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors duration-300"
+                  className="absolute top-3 sm:top-4 left-3 sm:left-4 p-1.5 sm:p-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors duration-300"
                   onClick={(e) => {
                     e.stopPropagation();
                     toggleFavorite(item.id);
@@ -356,7 +356,7 @@ export default function Menu() {
                   whileTap={{ scale: 0.9 }}
                 >
                   <Heart 
-                    className={`w-5 h-5 ${
+                    className={`w-4 h-4 sm:w-5 sm:h-5 ${
                       favorites.includes(item.id) 
                         ? 'text-primary-red fill-current' 
                         : 'text-white'
@@ -367,18 +367,18 @@ export default function Menu() {
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <motion.div
-                    className="bg-white/20 backdrop-blur-sm rounded-full p-4"
+                    className="bg-white/20 backdrop-blur-sm rounded-full p-3 sm:p-4"
                     whileHover={{ scale: 1.1 }}
                   >
-                    <Sparkles className="w-8 h-8 text-white" />
+                    <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </motion.div>
                 </div>
               </div>
 
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-3">
+              <div className="p-4 sm:p-6">
+                <div className="flex justify-between items-start mb-2 sm:mb-3">
                   <motion.h3 
-                    className="text-2xl font-bold text-neutral-charcoal group-hover:text-primary-red transition-colors duration-300 font-serif"
+                    className="text-lg sm:text-xl md:text-2xl font-bold text-neutral-charcoal group-hover:text-primary-red transition-colors duration-300 font-serif leading-tight"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 + index * 0.1 }}
@@ -386,7 +386,7 @@ export default function Menu() {
                     {item.name}
                   </motion.h3>
                   <motion.span 
-                    className="text-primary-red font-bold text-xl font-serif"
+                    className="text-primary-red font-bold text-lg sm:text-xl font-serif flex-shrink-0 ml-2"
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.4 + index * 0.1 }}
@@ -394,7 +394,7 @@ export default function Menu() {
                     {item.price}
                   </motion.span>
                 </div>
-                <p className="text-neutral-charcoal/70 leading-relaxed">{item.description}</p>
+                <p className="text-neutral-charcoal/70 leading-relaxed text-sm sm:text-base">{item.description}</p>
               </div>
             </motion.div>
           ))}
@@ -412,7 +412,7 @@ export default function Menu() {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="bg-white rounded-2xl max-w-4xl w-full overflow-hidden luxury-shadow"
+              className="bg-white rounded-xl sm:rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden luxury-shadow"
               variants={modalVariants}
               initial="hidden"
               animate="visible"
@@ -423,39 +423,39 @@ export default function Menu() {
                 <img
                   src={selectedItem.image}
                   alt={selectedItem.name}
-                  className="w-full h-80 object-cover"
+                  className="w-full h-48 sm:h-64 md:h-80 object-cover"
                 />
                 <motion.button
-                  className="absolute top-4 right-4 p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors duration-300"
+                  className="absolute top-3 sm:top-4 right-3 sm:right-4 p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors duration-300"
                   onClick={() => setSelectedItem(null)}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  <X className="w-6 h-6 text-white" />
+                  <X className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </motion.button>
               </div>
-              <div className="p-8">
-                <div className="flex justify-between items-start mb-6">
-                  <h3 className="text-4xl font-bold text-neutral-charcoal font-serif">{selectedItem.name}</h3>
-                  <span className="text-primary-red font-bold text-3xl font-serif">{selectedItem.price}</span>
+              <div className="p-4 sm:p-6 md:p-8 max-h-[50vh] overflow-y-auto">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 sm:mb-6 gap-2 sm:gap-0">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-charcoal font-serif leading-tight">{selectedItem.name}</h3>
+                  <span className="text-primary-red font-bold text-xl sm:text-2xl md:text-3xl font-serif">{selectedItem.price}</span>
                 </div>
-                <p className="text-neutral-charcoal/80 text-xl mb-8 leading-relaxed">{selectedItem.description}</p>
-                <div className="flex gap-4">
+                <p className="text-neutral-charcoal/80 text-base sm:text-lg md:text-xl mb-6 sm:mb-8 leading-relaxed">{selectedItem.description}</p>
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <motion.button
-                    className="flex-1 bg-luxury-gradient text-white py-4 rounded-xl font-semibold text-lg hover:shadow-luxury-red transition-all duration-300"
+                    className="flex-1 bg-luxury-gradient text-white py-3 sm:py-4 rounded-lg sm:rounded-xl font-semibold text-base sm:text-lg hover:shadow-luxury-red transition-all duration-300"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
                     Add to Order
                   </motion.button>
                   <motion.button
-                    className="px-8 py-4 border-2 border-primary-red text-primary-red font-semibold rounded-xl hover:bg-primary-red hover:text-white transition-all duration-300"
+                    className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-primary-red text-primary-red font-semibold rounded-lg sm:rounded-xl hover:bg-primary-red hover:text-white transition-all duration-300 flex items-center justify-center"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => toggleFavorite(selectedItem.id)}
                   >
                     <Heart 
-                      className={`w-6 h-6 ${
+                      className={`w-5 h-5 sm:w-6 sm:h-6 ${
                         favorites.includes(selectedItem.id) 
                           ? 'fill-current' 
                           : ''
