@@ -76,7 +76,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
         style={{
-          backgroundImage: `url('/assets/Steak-bg-img.jpg')`,
+          backgroundImage: `url('/Steak-bg-img.jpg')`,
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-neutral-black/90 via-neutral-black/80 to-neutral-black/90"></div>
@@ -120,7 +120,7 @@ export default function Hero() {
           transition={{ duration: 4, repeat: Infinity }}
         >
           <img 
-            src="/assets/logo-2.png" 
+            src="/logo-2.png" 
             alt="Tabouni Steak House Logo" 
             className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain mx-auto animate-pulse" 
           />

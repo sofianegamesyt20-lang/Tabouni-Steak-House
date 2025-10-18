@@ -99,7 +99,7 @@ export default function Footer() {
                 transition={{ duration: 4, repeat: Infinity }}
               >
                 <img 
-                  src="/assets/logo-2.png" 
+                  src="/logo-2.png" 
                   alt="Tabouni Steak House Logo" 
                   className="w-12 h-12 object-contain" 
                 />

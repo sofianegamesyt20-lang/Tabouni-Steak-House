@@ -279,7 +279,7 @@ export default function About() {
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="absolute top-3 sm:top-4 right-3 sm:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <img 
-                      src="/assets/logo-2.png" 
+                      src="/logo-2.png" 
                       alt="Tabouni Logo" 
                       className="w-5 h-5 sm:w-6 sm:h-6 object-contain" 
                     />
